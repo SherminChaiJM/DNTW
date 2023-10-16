@@ -1,0 +1,192 @@
+<head>
+    <title>Add Device Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav bar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="showdevice">Show Devices</a></li>
+                    <li><a href="adddevice">Add Devices</a></li>
+                    <li><a href="deletedevice">Delete Devices</a></li>
+                    <li><a href="updatedevice">Update Devices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Welcome to My Smart Home!</h1>
+    <h3>List of Added Devices:</h3>
+    <br>
+    <p>For Lights, Heater and Security Camera:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Switch</th>
+            <th>Intensity</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Lights" || device.type == "Heater" || device.type == "Security Camera") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.switch %></td>
+            <td><%=device.intensity %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+    <br>
+    <p>For Television, Speaker and Radio:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Switch</th>
+            <th>Volume</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Television" || device.type == "Speakers" || device.type == "Radio") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.switch %></td>
+            <td><%=device.volume %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+    <br>
+    <p>For Dryer, Humidifier, Dishwasher, Vacuum Cleaner, Washing Machine and Microwave:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Switch</th>
+            <th>Timer</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Dryer" || device.type == "Humidifier" || device.type == "Dishwasher" || device.type == "Vacuum Cleaner" || device.type == "Washing Machine" || device.type == "Microwave") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.switch %></td>
+            <td><%=device.timer %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+    <br>
+    <p>For Fan, Air Conditioner, Convection Oven and Induction Stove:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Switch</th>
+            <th>Timer</th>
+            <th>Intensity</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Fan" || device.type == "Air Conditioner" || device.type == "Convection Oven" || device.type == "Induction Stove") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.switch %></td>
+            <td><%=device.timer %></td>
+            <td><%=device.intensity %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+    <br>
+    <p>For Smart Gate and Roller Blinds:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Switch</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Smart Gate" || device.type == "Roller Blinds") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.switch %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+    <br>
+    <p>For Freezer and Refrigerator:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Intensity</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <!--assesing the database for the devices-->
+        <% availableDevices.forEach(function(device){ %>
+        <!--for specific devices and thier applicable input field-->
+        <% if(device.type == "Freezer" || device.type == "Refrigerator") { %>
+        <tr>
+            <td><%=device.id %></td>
+            <td><%=device.name %></td>
+            <td><%=device.type %></td>
+            <td><%=device.intensity %></td>
+            <td><a href="updatedevice">Update</a></td>
+            <td><a href="deletedevice" onClick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+        <% } %>
+        <% }) %>
+    </table>
+
+</body>
+
+</html>

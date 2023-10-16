@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Add Device Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav bar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="showdevice">Show Devices</a></li>
+                    <li><a href="adddevice">Add Devices</a></li>
+                    <li><a href="deletedevice">Delete Devices</a></li>
+                    <li><a href="updatedevice">Update Devices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Welcome to My Smart Home!</h1>
+    <p>Fill out the form below to add devices!</p>
+    <form name="device" method="POST" action="/deviceadded" onsubmit="return validateForm()">
+        <label for="name">Device Name:</label>
+        <input id="name" type="text" name="name" value=""/>
+        <br>
+        <div class="dropdown">
+            <label for="type">Device Type: </label>
+            <select id="type" name="type" onChange="hideField()">
+                <option value="none" selected disabled hidden>Select a Device</option>
+                <option value="Lights">Lights</option>
+                <option value="Heater">Heater</option>
+                <option value="Security Camera">Security Camera</option>
+                <option value="Television">Television</option>
+                <option value="Speakers">Speakers</option>
+                <option value="Radio">Radio</option>
+                <option value="Dryer">Dryer</option>
+                <option value="Humidifier">Humidifier</option>
+                <option value="Dishwasher">Dishwasher</option>
+                <option value="Vacuum Cleaner">Vacuum Cleaner</option>
+                <option value="Washing Machine">Washing Machine</option>
+                <option value="Microwave">Microwave</option>
+                <option value="Fan">Fan</option>
+                <option value="Air Conditioner">Air Conditioner</option>
+                <option value="Convection Oven">Convection Oven</option>
+                <option value="Induction Stove">Induction Stove</option>
+                <option value="Smart Gate">Smart Gate</option>
+                <option value="Roller Blinds">Roller Blinds</option>
+                <option value="Freezer">Freezer</option>
+                <option value="Refrigerator">Refrigerator</option>
+            </select>
+        </div>
+        <br>
+        <div class="dropdown">
+            <label for="switch">Switch:</label>
+            <select id="switchInput" name="switch">
+                <option value="On">On</option>
+                <option value="Off">Off</option>
+                <option value="Open">Open</option>
+                <option value="Close">Close</option>
+                <option value="NA">NA</option>
+            </select>
+        </div>
+        <br>
+        <label id="timer" for="timer">Timer: (In Minutes)</label>
+        <input id="timerInput" type="text" name="timer" value="" />
+        <br>
+        <label id="intensity" for="Intensity">Intensity: Speed/Brightness/Temperature</label>
+        <input id="intensityInput" type="text" name="intensity" value="" />
+        <br>
+        <label id="volume" for="Volume">Volume:</label>
+        <input id="volumeInput" type="range" min="0" max ="10" value="" name="volume" class="slider" />
+        <br><br>
+        <input type="submit" value="Add Device">
+        <input type="reset">
+    </form>
+
+<script>
+
+    function validateForm() {
+        //get the value of the input field
+        let x = document.forms["device"].value;
+        //setting boundaries
+        if(x == null)
+        {
+            alert(req.body.x + ": Fields must be filled out");
+            return false;
+        }
+    }
+
+    function hideField() {
+        //setting values for each input field
+        var device = document.getElementById("type").value;
+        if(device == "Lights" || device == "Heater" || device == "Security Camera") 
+        {
+            document.getElementById("switchInput").value = "On";
+            document.getElementById("timerInput").value = "0";
+            document.getElementById("intensityInput").value = "";
+            document.getElementById("volumeInput").value = "0";            
+        }
+
+        if (device == "Television" || device == "Speakers" || device == "Radio") 
+        {
+            document.getElementById("switchInput").value = "On";
+            document.getElementById("timerInput").value = "0";
+            document.getElementById("intensityInput").value = "0";
+            document.getElementById("volumeInput").value = "";
+        }
+
+        if (device == "Dryer" || device == "Humidifier" || device == "Dishwasher" || device == " Vacuum Cleaner" || device == "Washing Machine" || device == "Microwave") 
+        {
+            document.getElementById("switchInput").value = "On";
+            document.getElementById("timerInput").value = "";
+            document.getElementById("intensityInput").value = "0";
+            document.getElementById("volumeInput").value = "0";
+        }
+
+        if (device == "Fan" || device == "Air Conditioner" || device == " Convection Oven" || device == "Induction Stove") 
+        {
+            document.getElementById("switchInput").value = "On";
+            document.getElementById("timerInput").value = "";
+            document.getElementById("intensityInput").value = "";
+            document.getElementById("volumeInput").value = "0";       
+        }
+
+        if (device == "Smart Gate" || device == "Roller Blinds")
+        {
+            document.getElementById("switchInput").value = "Open";
+            document.getElementById("timerInput").value = "0";
+            document.getElementById("intensityInput").value = "0";
+            document.getElementById("volumeInput").value = "0";
+        }
+
+        if (device == "Freezer" || device == "Refrigerator") 
+        {
+            document.getElementById("switchInput").value = "NA";
+            document.getElementById("timerInput").value = "0";
+            document.getElementById("intensityInput").value = "";
+            document.getElementById("volumeInput").value = "0";
+        }
+    }
+
+</script>
+</body>
+
+</html>

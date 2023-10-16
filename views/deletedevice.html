@@ -1,0 +1,30 @@
+<head>
+    <title>Add Device Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav bar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="showdevice">Show Devices</a></li>
+                    <li><a href="adddevice">Add Devices</a></li>
+                    <li><a href="deletedevice">Delete Devices</a></li>
+                    <li><a href="updatedevice">Update Devices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Welcome to My Smart Home!</h1>
+    <form method="POST" action="/devicedeleted">
+        <label for="id">Device ID:</label>
+        <input id="id" type="text" name="id" value="=">
+        <br><br>
+        <input type="submit" value="Delete Device" />
+    </form>
+</body>
+
+</html>
